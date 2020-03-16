@@ -1,6 +1,13 @@
 # Crawling_project_kyobo
 
-Total database for the writer, editor, reader
+### Create
+- made by : Jungyoung Bae, Bitna Bae
+- function : 
+		crawling kyobo page
+		Save data to database
+		sending to slack msg
+- return : book_info & review_info
+
 
 # 교보문고 크롤링
 ## 데이터 수집의 개요
@@ -33,14 +40,22 @@ Total database for the writer, editor, reader
 - 1~50위의 분야/제목/작가/출판사/가격/출판년월일/ISBN/책사이즈(가로*세로)/무게/페이지/책소개요약/키워드/책소개/평점/링크 크롤링
 - 리뷰 페이지 크롤링(개수/텍스트)
 
-#### 모듈/패키지 or 스크래피 화
+#### 스크래화피 & MongoDB 저장
 - book_info.csv로 저장
 - review_info.csv로 저장
 
-#### book_info + review_info dataframe 합치기
+#### Merge book_info + review_info dataframe
 - 리뷰는 ISBN 기준으로 "".join 으로 한 row에 넣는 코드 작성하여 불러들임
 
 #### 추천 시스템 결과 도출
-- 책 만드는 사람 : 문장을 입력하면 가장 일치하는 분야 및 도서 정보 도출(일치할 확률 점검) : 사이즈/페이지는 평균값 정도?
+- 책 만드는 사람 : 문장을 입력하면 가장 일치하는 분야 및 도서 정보 도출(일치할 확률 점검) : 사이즈/페이지는 평균값 정도
 - 책 쓰는 사람 : 문장을 입력하면 가장 일치하는 분야 사이즈/페이지/해당 분야 TOP 5 출판사 도출
 - 책 읽는 사람 : 읽고 싶은 문장을 쓰면 가장 일치하는 분야/도서 정보(가격/책소개요약/링크)
+
+## 이슈 레벨 정리
+- eqalization of term : level 1(30 min)
+- category pattern analyze : level 2(1 hour)
+- detail page elemention postion analyze : level 2(1 hour)
+- review page url finding : level 2(1 hour)
+- null exception : level 2(1 hour)
+
