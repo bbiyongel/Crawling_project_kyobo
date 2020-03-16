@@ -59,3 +59,8 @@
 - review page url finding : level 2(1 hour)
 - null exception : level 2(1 hour)
 
+### 버전 히스토리
+- 0.1 crawling code
+- 0.2 detail page Scrapy
+- 0.3 reveiw page Scrapy
+- 0.4 detail page Slack MSG, book in stock
