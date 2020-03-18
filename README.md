@@ -1,7 +1,7 @@
 # Crawling_project_kyobo
 
 ### Create info
-- made by : Jungyoung Bae, Bitna Bae
+- made by : Joonyoung Bae, Bitna Bae
 - function : 
 		crawling kyobo page
 		Save data to database
