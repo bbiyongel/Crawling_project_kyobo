@@ -40,27 +40,37 @@
 - 1~50위의 분야/제목/작가/출판사/가격/출판년월일/ISBN/책사이즈(가로*세로)/무게/페이지/책소개요약/키워드/책소개/평점/링크 크롤링
 - 리뷰 페이지 크롤링(개수/텍스트)
 
-#### 스크래화피 & MongoDB 저장
+#### Scrapy 화  & MongoDB 저장
 - book_info.csv로 저장
 - review_info.csv로 저장
 
-#### Merge book_info + review_info dataframe
-- 리뷰는 ISBN 기준으로 "".join 으로 한 row에 넣는 코드 작성하여 불러들임
+#### book_info + review_info dataframe
 
-#### 추천 시스템 결과 도출
-- 책 만드는 사람 : 문장을 입력하면 가장 일치하는 분야 및 도서 정보 도출(일치할 확률 점검) : 사이즈/페이지는 평균값 정도
-- 책 쓰는 사람 : 문장을 입력하면 가장 일치하는 분야 사이즈/페이지/해당 분야 TOP 5 출판사 도출
-- 책 읽는 사람 : 읽고 싶은 문장을 쓰면 가장 일치하는 분야/도서 정보(가격/책소개요약/링크)
+#### 키워드로 도서 검색 및 ISBN으로 재고& 리뷰  정보 제공
+- 문장을 입력 
+- MongoDB 도서 내용(summary)에서 문장 내 명사가 일치하는  도서 정보 제공
+- ISBN bot 재고 -> 매장 내 재고 정보 도출
+- ISBN bot 리뷰 -> 해당 책의 리뷰 제공
 
-## 이슈 레벨 정리
-- eqalization of term : level 1(30 min)
-- category pattern analyze : level 2(1 hour)
-- detail page elemention postion analyze : level 2(1 hour)
-- review page url finding : level 2(1 hour)
-- null exception : level 2(1 hour)
+### 이슈 레벨 정리
+- 용어 정리 : level 1(30 min)
+- 카테고리 패턴 분석 : level 1(1 hour)
+- 책 상세정보 요소 위치 다양 : level 2(2 hour)
+- 리뷰 페이지 url 찾기 : level 1(1 hour)
+- Nan 수집 예외 처리 : level 1(1 hour)
+- 재고 크롤재고 크롤링 방식 변경 : level 2(2 hour)
+- konlpy 패키지 설치 : level 3(3 hour)
+- 문장 처리 및 명사 추출 : level 2(1.5 hour)
+- 재고 크롤재고 크롤링 방식 변경 : level 3(3 hour)
 
 ### 버전 히스토리
-- 0.1 crawling code
-- 0.2 detail page Scrapy
-- 0.3 reveiw page Scrapy
-- 0.4 detail page Slack MSG, book in stock
+- 0.0.1 크롤링 코드 db 저장
+- 0.0.2 북 인포 재고 slack 전송
+- 0.0.3 리뷰 인포 slack 전송
+- 0.1.0 키워드로 재고 및 리뷰slack 연동
+- 0.2.0 일주일 주기로 자동 크롤링
+
+### 발전시키고 싶은 사항
+- 한 책 당 리뷰가 여러가지라, 한번에 book_info 랑 review_info를 한번에 스크래피 후 저장하는 방법 찾기
+- 암호화 해제 된 구매한 사람의 구매 아이디를 찾아서 추천 시스템에 적용
+- 명사에서 발전시켜서 조사까지 분석하는 자연어 처리 : 감정분석으로 책 추천
