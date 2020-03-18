@@ -1,6 +1,6 @@
 # Crawling_project_kyobo
 
-### Create
+### Create info
 - made by : Jungyoung Bae, Bitna Bae
 - function : 
 		crawling kyobo page
